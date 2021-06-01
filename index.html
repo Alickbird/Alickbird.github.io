@@ -47,7 +47,7 @@
             for (var i = 0, len = feat.length; i < len; i++) {
                 tableData.push({
                     "date": feat[i].date,
-                    "age": feat[i].newCasesBySpecimenDateAgeDemographics[0],
+                    "age": feat[i].newCasesBySpecimenDateAgeDemographics[0].age,
                     "rollingRate": feat[i].newCasesBySpecimenDateAgeDemographics[0].rollingRate
                 });
             }
