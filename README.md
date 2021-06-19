@@ -1,3 +1,3 @@
 Test site
 
-[Link to another page](./another_page.html).
+[Kosovo forest loss chart](./Kosovo_forestloss.html).
