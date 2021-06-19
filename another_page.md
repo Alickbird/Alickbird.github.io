@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Another page
-description: This is just another page
+title: Kosovo forest loss chart
+description: chart test
 ---
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
@@ -11,18 +11,11 @@ description: This is just another page
             labels: ["2001", "2002", "2003", "2004", "2005","2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014","2015", "2016", "2017", "2018", "2019"],
             datasets: [
                 {
-                    label: "SLK",
+                    label: "Forest loss in Kosovo (ha)",
                     backgroundColor: 'rgba(0, 0, 255, 0.5)',
                     borderWidth: 1,
                     data: [1001, 188, 231, 442, 261, 443, 583, 965, 576, 459, 643, 1616, 796, 740, 496, 946, 718, 607, 727],
                     xAxisID: "bar-x-axis1"
-                },
-                {
-                    label: "GFW",
-                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                    borderWidth: 1,
-                    data: [1122, 215, 261, 573, 314, 520, 811, 1143, 777, 468, 802, 1739, 768, 761, 471, 912, 626, 594, 697],
-                    xAxisID: "bar-x-axis2"
                 }
             ]
         };
@@ -31,13 +24,6 @@ description: This is just another page
             scales: {
                 xAxes: [
                     {
-                        id: "bar-x-axis2",
-                        stacked: true,
-                        categoryPercentage: 0.5,
-                        barPercentage: 0.5
-                    },
-                    {
-                        display: false,
                         stacked: true,
                         id: "bar-x-axis1",
                         type: 'category',
@@ -68,6 +54,5 @@ description: This is just another page
             options: options
         });
 </script>
-
 
 [back](./)
