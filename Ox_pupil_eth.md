@@ -1,3 +1,6 @@
+---
+layout: default
+---
 
 <h3>Oxfordshire Schools Pupil Ethnicity 2020</h3>
 
