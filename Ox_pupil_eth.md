@@ -1,0 +1,144 @@
+---
+layout: default
+---
+<h3>Oxfordshire Schools Pupil Ethnicity 2020</h3>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<script>
+function val() {
+    d = document.getElementById("EL").value;
+    return(d)
+}
+</script>
+
+<!--Add E/L filter-->
+<select id="EL" onchange="update(val())">
+  <option value="Count" >% Ethnic Minority</option>
+  <option value="Lcount" >% Non English First Language</option>
+</select>
+
+<!--Add sector filter-->
+<select id="Sector" onchange="update(val())">
+  <option value="Total">Total</option>
+  <option value="Primary">Primary</option>
+  <option value="Secondary">Secondary</option>
+</select>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Initialize the X axis
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .padding(0.2);
+var xAxis = svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+
+// Initialize the Y axis
+var y = d3.scaleLinear()
+  .range([ height, 0]);
+var yAxis = svg.append("g")
+  .attr("class","myYaxis")
+
+
+// A function that create / update the plot for a given variable:
+function update(selectedVar) {
+
+  // Parse the Data
+  d3.csv("https://raw.githubusercontent.com/Alickbird/OxInsight-charts/main/test_data1.csv", function(data) {
+
+    // filter data
+    var selection = d3.select("#Sector").node().value
+    console.log(selection);
+    data = data.filter(function(d){return d.PorS == selection}); 
+    console.log(data);
+
+    // X axis
+    x.domain(data.map(function(d) { return d.District ; }))
+    xAxis.transition().duration(1000).call(d3.axisBottom(x)).selectAll("text").style("text-anchor", "end").attr("transform", "rotate(-30)")
+
+    // Add Y axis
+    y.domain([0, 1 ]);
+    yAxis.transition().duration(1000).call(d3.axisLeft(y).tickFormat(d3.format(".0%")));
+
+    console.log(data.selectedVar)
+
+    // create a tooltip
+    var Tooltip = d3.select("#my_dataviz")
+      .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("position", "absolute")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .style("padding", "5px")
+
+      //formatter for tooltip
+      var formatter = d3.format(".3n");
+
+      // Three function that change the tooltip when user hover / move / leave a cell
+      var mouseover = function(d) {
+        Tooltip
+          .style("opacity", 1)
+      }
+      var mousemove = function(d) {
+        Tooltip
+          .html(formatter(d[selectedVar]*100)+"%")
+            .style("left", (d3.event.pageX - 330) + "px")
+            .style("top", (d3.event.pageY - 200) + "px")
+      }
+      var mouseleave = function(d) {
+        Tooltip
+          .style("opacity", 0)
+      }
+
+    // variable u: map data to existing bars
+    var u = svg.selectAll("rect")
+      .data(data)
+
+    console.log(u)
+
+    // update bars
+    u
+      .enter()
+      .append("rect")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+      .merge(u)
+      .transition()
+      .duration(1000)
+        .attr("x", function(d) { return x(d.District ); })
+        .attr("y", function(d) { return y(d[selectedVar]); })
+        .attr("width", x.bandwidth())
+        .attr("height", function(d) { return height - y(d[selectedVar]); })
+        .attr("fill", "#69b3a2")
+
+  })
+
+}
+
+// Initialize plot
+update('Count')
+
+</script>
