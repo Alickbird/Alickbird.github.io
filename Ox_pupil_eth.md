@@ -106,7 +106,7 @@ function update(selectedVar) {
         Tooltip
           .html(formatter(d[selectedVar]*100)+"%")
             .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY+30) + "px")
+            .style("top", (d3.event.pageY-30) + "px")
       }
       var mouseleave = function(d) {
         Tooltip
