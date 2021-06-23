@@ -1,4 +1,4 @@
-**Things** 
+**things** 
 
 [Kosovo forest loss chart (chart.js)](./Kosovo_forestloss.html)
 
