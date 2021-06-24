@@ -34,7 +34,7 @@ L.tileLayer(
 // load GeoJSON from an external file
 $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/oxfood.json",function(data){
   // add GeoJSON layer to the map once the file is loaded
-  L.geoJson(data).addTo(map);
+  L.geoJson(data).addTo(mymap);
   });
 
 
