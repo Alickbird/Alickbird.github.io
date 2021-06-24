@@ -23,7 +23,7 @@ layout: default
 // mapid is the id of the div where the map will appear
 var mymap = L
   .map('mapid')
-  .setView([51.76, -1.25], 10);
+  .setView([51.76, -1.25], 12);
 
 // Add a tile to the map = a background. Comes from OpenStreetmap
 L.tileLayer(
@@ -37,6 +37,7 @@ $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/
   L.geoJson(data).addTo(mymap);
   });
 
+L.control.layers().addTo(map);
 
 </script>
 
