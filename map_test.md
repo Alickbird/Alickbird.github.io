@@ -37,7 +37,7 @@ $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/
   L.geoJson(data).addTo(mymap);
   });
 
-L.control.layers().addTo(map);
+L.control.layers().addTo(mymap);
 
 </script>
 
