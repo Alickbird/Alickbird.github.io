@@ -19,25 +19,22 @@ layout: default
 
 <script>
 
+var foodpoints = $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/oxfood.json",function(data){L.geoJson(data);});  
+  
 // Initialize the map
 // mapid is the id of the div where the map will appear
 var mymap = L
   .map('mapid')
-  .setView([51.76, -1.25], 12);
+  .setView([51.76, -1.25], 12)
+  .layers([foodpoints]);
 
 // Add a tile to the map = a background. Comes from OpenStreetmap
 L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
     }).addTo(mymap);
-  
-// load GeoJSON from an external file
-$.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/oxfood.json",function(data){
-  // add GeoJSON layer to the map once the file is loaded
-  L.geoJson(data).addTo(mymap);
-  });
 
-L.control.layers().addTo(mymap);
+L.control.layers(foodpoints).addTo(mymap);
 
 </script>
 
