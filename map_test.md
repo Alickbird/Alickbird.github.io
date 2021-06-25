@@ -23,8 +23,7 @@ layout: default
 // mapid is the id of the div where the map will appear
 var mymap = L
   .map('mapid')
-  .setView([51.76, -1.25], 12)
-  .layers([foodpoints]);
+  .setView([51.76, -1.25], 12);
 
 // Add a tile to the map = a background. Comes from OpenStreetmap
 L.tileLayer(
