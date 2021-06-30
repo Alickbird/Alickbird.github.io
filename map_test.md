@@ -41,7 +41,7 @@ function addMyData( feature, layer ){
 
 // Initialize the map
 // mapid is the id of the div where the map will appear
-var mymap = L.map('mapid',{
+var map = L.map('mapid',{
   center: [51.76, -1.25],
   zoom: 12
  });
