@@ -18,9 +18,15 @@ layout: default
 </style>
 
 <script>
+ 
+// Initialize the map
+// mapid is the id of the div where the map will appear
+var map = L.map('mapid',{
+  center: [51.76, -1.25],
+  zoom: 12
+ });
   
-  
-var mylayer = L.layerGroup().addTo( map )
+var mylayer = L.layerGroup().addTo(map);
 var bg = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
@@ -35,16 +41,11 @@ $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/
 })
     
 function addMyData( feature, layer ){
-  mylayer.addLayer( layer )
+  mylayer.addLayer(layer)
   // some other code can go here, like adding a popup with layer.bindPopup("Hello")
 }
 
-// Initialize the map
-// mapid is the id of the div where the map will appear
-var map = L.map('mapid',{
-  center: [51.76, -1.25],
-  zoom: 12
- });
+
 
 var layerControl = {
   "My Layer": mylayer, // an option to show or hide the layer you created from geojson
