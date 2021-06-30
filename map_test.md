@@ -21,7 +21,8 @@ layout: default
   
 //load GeoJSON from an external file
 var points = $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/oxfood.json");
-var pointlayer = L.geoJson(points)
+console.log(points);
+var pointlayer = L.geoJson(points);
   
 // Initialize the map
 // mapid is the id of the div where the map will appear
