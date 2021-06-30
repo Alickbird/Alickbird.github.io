@@ -47,10 +47,10 @@ function addMyData( feature, layer ){
 
 
 var basemapControl = {
-  "My Basemap": bg, // an option to select a basemap (makes more sense if you have multiple basemaps)
+  "OSM Basemap": bg, // an option to select a basemap (makes more sense if you have multiple basemaps)
 }
 var layerControl = {
-  "My Layer": mylayer, // an option to show or hide the layer you created from geojson
+  "Food retailers": mylayer, // an option to show or hide the layer you created from geojson
 }
 
 // Add the control component, a layer list with checkboxes for operational layers and radio buttons for basemaps
