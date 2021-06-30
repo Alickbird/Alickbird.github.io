@@ -30,7 +30,7 @@ var mylayer = L.layerGroup().addTo(map);
 var bg = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-    }).addTo(mymap);
+    }).addTo(map);
 
   
 //load GeoJSON from an external file
