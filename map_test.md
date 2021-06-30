@@ -37,7 +37,7 @@ L.tileLayer(
     }).addTo(mymap);
 
   
-L.control.;ayers().addTo(mymap);
+L.control.layers().addTo(mymap);
 
 </script>
 
