@@ -19,28 +19,41 @@ layout: default
 
 <script>
   
-//load GeoJSON from an external file
-var points = $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/oxfood.json");
-console.log(points);
-var pointlayer = L.geoJson(points);
   
-// Initialize the map
-// mapid is the id of the div where the map will appear
-var mymap = L.map('mapid',{
-  center: [51.76, -1.25],
-  zoom: 12,
-  layers: [pointlayer]
- });
-
-// Add a tile to the map = a background. Comes from OpenStreetmap
-L.tileLayer(
+var mylayer = L.layerGroup().addTo( map )
+var bg = L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
     }).addTo(mymap);
 
   
-L.control.layers().addTo(mymap);
+//load GeoJSON from an external file
+$.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/oxfood.json", function( json ){
+  L.geoJSON( json, {
+    onEachFeature: addMyData,
+  })
+})
+    
+function addMyData( feature, layer ){
+  mylayer.addLayer( layer )
+  // some other code can go here, like adding a popup with layer.bindPopup("Hello")
+}
 
+// Initialize the map
+// mapid is the id of the div where the map will appear
+var mymap = L.map('mapid',{
+  center: [51.76, -1.25],
+  zoom: 12
+ });
+
+var layerControl = {
+  "My Layer": mylayer, // an option to show or hide the layer you created from geojson
+}
+
+// Add the control component, a layer list with checkboxes for operational layers and radio buttons for basemaps
+L.control.layers(layerControl ).addTo( map )
+
+  
 </script>
 
 [back](./)
