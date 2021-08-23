@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+[back](./)
+
 
 <h3>Oxfordshire Schools Pupil Ethnicity 2020</h3>
 
@@ -144,4 +146,3 @@ update('Count')
 
 </script>
 
-[back](./)
