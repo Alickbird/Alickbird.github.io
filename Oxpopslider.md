@@ -47,7 +47,7 @@ layout: default
     </p>
     <div id="slider-range"></div>
     <p>
-        <label for "population">ONS 2020 mid-year population estimate:</label>
+        <label for= "population">ONS 2020 mid-year population estimate:</label>
         <input type="text" id="population" readonly style="border:0; color:#f6931f; font-weight:bold;">
 </div>
 
