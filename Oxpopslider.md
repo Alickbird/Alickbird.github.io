@@ -40,16 +40,15 @@ layout: default
 </script>
     
 
-<div class="content">
-    <p>
-        <label for="amount">Age range:</label>
-        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-    </p>
-    <div id="slider-range"></div>
-    <p>
-        <label for= "population">ONS 2020 mid-year population estimate:</label>
-        <input type="text" id="population" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</div>
+
+<p>
+    <label for="amount">Age range:</label>
+    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="slider-range"></div>
+<p>
+    <label for= "population">ONS 2020 mid-year population estimate:</label>
+    <input type="text" id="population" readonly style="border:0; color:#f6931f; font-weight:bold;">
 
 
 [back](./)
