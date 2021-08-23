@@ -2,37 +2,31 @@
 layout: default
 ---
 
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <style type="text/css">
-        .content{
-            width:350px;
-            margin:40px auto;
-        }
-        h2{
-            text-align: center;
-        }  
-    </style>
-</head>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style type="text/css">
+    .content{
+        width:350px;
+        margin:40px auto;
+    }
+    h2{
+        text-align: center;
+    }  
+</style>
 
 
-<body>
-    <div class="content">
-        <p>
-            <label for="amount">Age range:</label>
-            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-        </p>
-        <div id="slider-range"></div>
-        <p>
-            <label for "population">ONS 2020 mid-year population estimate:</label>
-            <input type="text" id="population" readonly style="border:0; color:#f6931f; font-weight:bold;">
-    </div>
-</body>
+<div class="content">
+    <p>
+        <label for="amount">Age range:</label>
+        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-range"></div>
+    <p>
+        <label for "population">ONS 2020 mid-year population estimate:</label>
+        <input type="text" id="population" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</div>
+
 
 <script>
     $( function() {
@@ -56,8 +50,6 @@ layout: default
         $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) + "-" + $( "#slider-range" ).slider( "values", 1 ) );
         $("#population").val("696880");
     });
-
-
 </script>
 
 
