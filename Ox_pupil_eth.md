@@ -105,8 +105,9 @@ function update(selectedVar) {
           .style("opacity", 1)
       }
       var mousemove = function(d) {
+        fix = val()
         Tooltip
-          .html(formatter(d[selectedVar]*100)+"%")
+          .html(formatter(d[fix]*100)+"%")
             .style("left", (d3.event.pageX-30) + "px")
             .style("top", (d3.event.pageY-50) + "px")
       }
