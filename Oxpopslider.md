@@ -18,6 +18,12 @@ layout: default
 
 <script>
     $( function() {
+      $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 90,
+      values: [ 0, 90],
+      slide: function( event, ui ) {
         if (ui.values[0] == 90) {
            minval = "90+";
         } else {
