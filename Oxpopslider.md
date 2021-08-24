@@ -32,7 +32,7 @@ layout: default
         if (ui.values[1] == 90) {
            maxval = "90+";
         } else {
-           maxval = ui.values[0];
+           maxval = ui.values[1];
         }
         $( "#amount" ).val( "" + minval + "-" + maxval )
         var popdata = [{"age":0,"population":7205},{"age":1,"population":7648},{"age":2,"population":7899},{"age":3,"population":8068},{"age":4,"population":8396}, 
