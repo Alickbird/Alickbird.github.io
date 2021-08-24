@@ -18,6 +18,17 @@ layout: default
 
 <script>
     $( function() {
+        if (ui.values[0] == 90) {
+           minval = "90+";
+        } else {
+           minval = ui.values[0];
+        }
+        if (ui.values[1] == 90) {
+           maxval = "90+";
+        } else {
+           maxval = ui.values[0];
+        }
+        $( "#amount" ).val( "" + minval + "-" + maxval )
         $( "#slider-range" ).slider({
             range: true,
             min: 0,
@@ -35,7 +46,7 @@ layout: default
                $( "#population" ).val( result)
             }
         });
-        $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) + "-" + $( "#slider-range" ).slider( "values", 1 ) );
+        $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) + "-" + "90+" );
         $("#population").val("696880");
     });
 </script>
