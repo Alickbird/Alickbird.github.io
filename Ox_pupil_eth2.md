@@ -67,7 +67,7 @@ var y = d3.scaleLinear()
 function update(selectedVar) {
 
   // Parse the Data
-  d3.csv("https://insight.oxfordshire.gov.uk/cms/sites/oxfordshireinsight/files/pupil_ethnicity_2021.csv", function(data) {
+  d3.csv("https://raw.githubusercontent.com/Alickbird/OxInsight-charts/main/Ethnicity_article_data.csv", function(data) {
 
     // filter data
     var selection = d3.select("#Sector").node().value
