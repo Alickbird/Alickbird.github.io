@@ -34,7 +34,7 @@ function val() {
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 70, left: 60};
+var margin = {top: 30, right: 30, bottom: 70, left: 135};
 var  width = 370;
 var  height = 300;
 
@@ -47,21 +47,21 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-// Initialize the X axis
-var x = d3.scaleBand()
-  .range([ 0, width ])
-  .padding(0.2);
-var xAxis = svg.append("g")
-  .attr("transform", "translate(0," + height + ")")
-
 // Initialize the Y axis
-var y = d3.scaleLinear()
-  .range([ height, 0]);
+var y = d3.scaleBand()
+  .range([ 0, height])
+  .padding(0.2);
+var yAxis = svg.append("g")
+  .attr("fill","black")
 
-// hide y axis
+
+// Initialize the X axis
+var x = d3.scaleLinear()
+  .range([0, width]);
+
+// hide x axis
 //var yAxis = svg.append("g")
 //  .attr("class","myYaxis")
-
 
 // A function that create / update the plot for a given variable:
 function update(selectedVar) {
@@ -73,50 +73,17 @@ function update(selectedVar) {
     var selection = d3.select("#Sector").node().value
     data = data.filter(function(d){return d.PorS == selection}); 
 
-    // X axis
-    x.domain(data.map(function(d) { return d.District ; }))
-    xAxis.transition().duration(1000).call(d3.axisBottom(x)).selectAll("text").style("text-anchor", "end").attr("transform", "rotate(-30)")
+    // Y axis
+    y.domain(data.map(function(d) { return d.District ; }))
+    yAxis.transition().duration(1000).call(d3.axisLeft(y)).selectAll("text").attr("font-size" , "13px")
+    console.log(yAxis)
 
-    // Add Y axis
-    y.domain([0, 0.6]);
+    // Add X axis - swapped
+    x.domain([0, 0.6]);
 
-// hide y axis
-//   yAxis.transition().duration(1000).call(d3.axisLeft(y).tickFormat(d3.format(".0%")));
-    
-    /* tooltip a bit buggy, commented out
-    // create a tooltip
-    var Tooltip = d3.select("#my_dataviz")
-      .append("div")
-      .style("opacity", 0)
-      .attr("class", "tooltip")
-      .style("position", "absolute")
-      .style("background-color", "white")
-      .style("border", "solid")
-      .style("border-width", "2px")
-      .style("border-radius", "5px")
-      .style("padding", "5px")
+    // hide x axis
+    //   xAxis.transition().duration(1000).call(d3.axisBottom(y).tickFormat(d3.format(".0%")));
 
-      //formatter for tooltip
-      var formatter = d3.format(".3n");
-
-      // Three function that change the tooltip when user hover / move / leave a cell
-      var mouseover = function(d) {
-        Tooltip
-          .style("opacity", 1)
-      }
-      var mousemove = function(d) {
-        fix = val()
-        Tooltip
-          .html(formatter(d[fix]*100)+"%")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY) + "px")
-      }
-      var mouseleave = function(d) {
-        Tooltip
-          .style("opacity", 0)
-      }
-     
-    */
     // variable u: map data to existing bars
     var u = svg.selectAll("rect")
       .data(data)
@@ -124,18 +91,14 @@ function update(selectedVar) {
     u
       .enter()
       .append("rect")
-      //  .on("mouseover", mouseover)
-      //  .on("mousemove", mousemove)
-      //  .on("mouseleave", mouseleave)
       .merge(u)
       .transition()
       .duration(1000)
-        .attr("x", function(d) { return x(d.District ); })
-        .attr("y", function(d) { return y(d[selectedVar]); }) 
-        .attr("width", x.bandwidth())
-        .attr("height", function(d) { return height - y(d[selectedVar]); })
-        .attr("fill", "#667088")
-
+        .attr("y", function(d) { return y(d.District ); })
+        .attr("x", x(0) ) 
+        .attr("height", y.bandwidth())
+        .attr("width", function(d) { return x(d[selectedVar]); })
+        .attr("fill", function(d) { if (d.District == "Oxfordshire") { return "#00483A";} else {return "#667088";} })
 
     //formatter for labels
     var formatter = d3.format(".0%");
@@ -150,8 +113,8 @@ function update(selectedVar) {
       .transition()
       .duration(1000)
          .attr("class", "barText")
-         .attr("x", function(d, i) {return x(d.District )+8;})
-         .attr("y", height-3) 
+         .attr("y", function(d, i) {return y(d.District)+20;})
+         .attr("x", x(0)+3) 
          .text( function(d) {return formatter(d[selectedVar]);})
          .attr("fill", "white")
          .attr("font-family" , "sans-serif")
