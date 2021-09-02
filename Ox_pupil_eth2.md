@@ -138,7 +138,7 @@ function update(selectedVar) {
 
 
     //formatter for labels
-    var formatter = d3.format(".2n");
+    var formatter = d3.format(".0%");
 
     // update labels
     var z = svg.selectAll(".barText")
@@ -152,7 +152,7 @@ function update(selectedVar) {
          .attr("class", "barText")
          .attr("x", function(d, i) {return x(d.District )+8;})
          .attr("y", height-3) 
-         .text( function(d) {return formatter(d[selectedVar]*100)+"%";})
+         .text( function(d) {return formatter(d[selectedVar];})
          .attr("fill", "white")
          .attr("font-family" , "sans-serif")
          .attr("font-size" , "14px")
