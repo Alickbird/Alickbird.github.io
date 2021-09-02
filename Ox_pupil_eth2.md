@@ -152,7 +152,7 @@ function update(selectedVar) {
          .attr("class", "barText")
          .attr("x", function(d, i) {return x(d.District )+8;})
          .attr("y", height-3) 
-         .text( function(d) {return formatter(d[selectedVar];})
+         .text( function(d) {return formatter(d[selectedVar]);})
          .attr("fill", "white")
          .attr("font-family" , "sans-serif")
          .attr("font-size" , "14px")
