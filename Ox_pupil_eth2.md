@@ -134,7 +134,7 @@ function update(selectedVar) {
         .attr("y", function(d) { return y(d[selectedVar]); }) 
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(d[selectedVar]); })
-        .attr("fill", "#69b3a2")
+        .attr("fill", "#667088")
 
 
     //formatter for labels
