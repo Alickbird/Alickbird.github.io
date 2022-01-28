@@ -1,4 +1,3 @@
-**things** 
 
 [Kosovo forest loss chart (chart.js)](./Kosovo_forestloss.html)
 
@@ -10,4 +9,3 @@
 
 [Oxfordshire ONS population estimate slider (jqueryUI)](./Oxpopslider.html)
 
-**etc**
