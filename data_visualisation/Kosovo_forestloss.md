@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[back](./data_visualisation/dataviz_home)
+[back](./dataviz_home)
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <canvas id="canvas"></canvas>

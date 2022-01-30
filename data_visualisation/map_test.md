@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-[back](./data_visualisation/dataviz_home)
+[back](./dataviz_home)
 
 
 <!-- Load Leaflet -->
