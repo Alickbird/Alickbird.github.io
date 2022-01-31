@@ -2,6 +2,7 @@
 layout: default
 --- 
 
+Miscellaneous charts, etc:
 
 - [Kosovo forest loss chart (chart.js)](./Kosovo_forestloss.html)
 
