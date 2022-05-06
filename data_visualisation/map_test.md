@@ -57,9 +57,12 @@ function addMyData(feature,layer){
                             var lon = centroid.geometry.coordinates[0];
                             var lat = centroid.geometry.coordinates[1];
                             L.marker([lat,lon]).bindPopup(feature.properties.name).addTo(mylayer);
+                        } else {
+                            var lon = feature.geometry.coordinates[0];
+                            var lat = feature.geometry.coordinates[1];
+                            L.marker([lat,lon]).bindPopup(feature.properties.name).addTo(mylayer); 
                         }
                         
-
 }
 
 var basemapControl = {
