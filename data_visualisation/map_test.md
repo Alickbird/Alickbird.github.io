@@ -56,9 +56,10 @@ function addMyData(feature,layer){
                             var centroid = turf.centroid(feature);
                             var lon = centroid.geometry.coordinates[0];
                             var lat = centroid.geometry.coordinates[1];
-                            layer.bindPopup(feature.properties.name);
                             L.marker([lat,lon]).addTo(mylayer);
                         }
+                        layer.bindPopup(feature.properties.name);
+
 }
 
 var basemapControl = {
