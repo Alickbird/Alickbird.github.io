@@ -11,6 +11,7 @@ layout: default
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://unpkg.com/@turf/turf@3.5.2/turf.min.js"></script>
 
 <!-- Create an element where the map will take place -->
 <div id="mapid"></div>
@@ -41,12 +42,23 @@ $.getJSON("https://raw.githubusercontent.com/Alickbird/Alickbird.github.io/main/
     onEachFeature: addMyData,
   })
 })
-    
+ 
+/*
 function addMyData( feature, layer ){
   mylayer.addLayer(layer)
   // some other code can go here, like adding a popup with layer.bindPopup("Hello")
 }
+*/
 
+function addMyData(feature,layer){
+                        if (feature.geometry.type === 'Polygon') {
+                            console.log('Polygon detected');
+                            var centroid = turf.centroid(feature);
+                            var lon = centroid.geometry.coordinates[0];
+                            var lat = centroid.geometry.coordinates[1];
+                            L.marker([lat,lon]).addTo(map);
+                        }
+}
 
 var basemapControl = {
   "OSM Basemap": bg, // an option to select a basemap (makes more sense if you have multiple basemaps)
