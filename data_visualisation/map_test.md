@@ -57,8 +57,9 @@ function addMyData(feature,layer){
                             var lon = centroid.geometry.coordinates[0];
                             var lat = centroid.geometry.coordinates[1];
                             L.marker([lat,lon]).addTo(mylayer);
+                            mylayer.bindPopup(feature.properties.name);
                         }
-                        layer.bindPopup(feature.properties.name);
+                        
 
 }
 
