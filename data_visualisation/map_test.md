@@ -52,7 +52,7 @@ var basemapControl = {
   "OSM Basemap": bg, // an option to select a basemap (makes more sense if you have multiple basemaps)
 }
 var layerControl = {
-  "Food retailers": mylayer, // an option to show or hide the layer you created from geojson
+  "Pubs": mylayer, // an option to show or hide the layer you created from geojson
 }
 
 // Add the control component, a layer list with checkboxes for operational layers and radio buttons for basemaps
