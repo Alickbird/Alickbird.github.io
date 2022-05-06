@@ -12,7 +12,7 @@ layout: default
             datasets: [
                 {
                     label: "Forest loss in Kosovo (ha)",
-                    backgroundColor: 'rgba(255, 230, 148, 0.75)',
+                    backgroundColor: '#155799',
                     borderWidth: 1,
                     data: [1001, 188, 231, 442, 261, 443, 583, 965, 576, 459, 643, 1616, 796, 740, 496, 946, 718, 607, 727],
                     xAxisID: "bar-x-axis1"
