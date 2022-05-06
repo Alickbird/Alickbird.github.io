@@ -10,7 +10,7 @@ Miscellaneous charts, etc:
 
 - [Oxfordshire pupil ethnicity & first language 2020 (d3.js)... take 2](./Ox_pupil_eth2.html)
 
-- [Map test (leaflet.js)](./map_test.html)
+- [Map test (leaflet.js, turf.js)](./map_test.html)
 
 - [Oxfordshire ONS population estimate slider (jqueryUI)](./Oxpopslider.html)
 
