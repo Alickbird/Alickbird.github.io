@@ -2,6 +2,8 @@
 layout: default
 --- 
 
+- [A Closer Look: quirks in Oxfordshire statitsics (Tableau)](https://public.tableau.com/views/ACloserLook/S1?embed=y:display_count=no&:showVizHome=no%20#1)
+
 - [Kosovo forest loss chart (chart.js)](./Kosovo_forestloss.html)
 
 - [Oxfordshire pupil ethnicity & first language 2020 (d3.js)](./Ox_pupil_eth.html)
